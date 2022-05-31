@@ -4,3 +4,5 @@
 
 *.cfg
 *.env
+
+client_secrets.json
