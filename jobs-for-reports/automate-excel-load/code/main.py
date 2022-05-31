@@ -8,25 +8,25 @@ from tempfile import NamedTemporaryFile
 
 class AutomateExcelLoad:
     def __init__(self):
-        self.s3_bucket = os.environ.get('MODEL_BUCKET', 'xxxxx')
-        self.s3_model_folder = os.environ.get('MODEL_FOLDER', 'xxxxx')
-        self.s3_model_filename = os.environ.get('MODEL_FILENAME', 'xxxxx')
+        self.s3_bucket = os.environ.get('MODEL_BUCKET')
+        self.s3_model_folder = os.environ.get('MODEL_FOLDER')
+        self.s3_model_filename = os.environ.get('MODEL_FILENAME')
         self.s3_temp_folder = 'temp'
         self.s3_model_path = f's3://{self.s3_bucket}/{self.s3_model_folder}/{self.s3_model_filename}'
         self.s3_model_key = f'{self.s3_model_folder}/{self.s3_model_filename}'
         self.s3_temp_path = f's3://{self.s3_bucket}/temp/{self.s3_model_filename}'
         self.s3_temp_key = f'temp/{self.s3_model_filename}'
-        self.query_filename = os.environ.get('QUERY_FILENAME', 'xxxxx')
+        self.query_filename = os.environ.get('QUERY_FILENAME')
 
         self.region_name = os.environ.get('REGION_NAME', 'us-east-1')
         self.s3_resource = boto3.resource('s3', region_name=self.region_name)
         self.s3_client = boto3.client('s3', region_name=self.region_name)
 
-        self.start_row = int(os.environ.get('START_ROW', '1'))
-        self.start_column = int(os.environ.get('START_COLUMN', '2'))
-        self.last_column = int(os.environ.get('LAST_COLUMN', '2'))
-        self.data_name_sheet = os.environ.get('DATA_NAME_SHEET', 'xxxxx')
-        self.report_name_sheet = os.environ.get('REPORT_NAME_SHEET', '')
+        self.start_row = int(os.environ.get('START_ROW'))
+        self.start_column = int(os.environ.get('START_COLUMN'))
+        self.last_column = int(os.environ.get('LAST_COLUMN'))
+        self.data_name_sheet = os.environ.get('DATA_NAME_SHEET')
+        self.report_name_sheet = os.environ.get('REPORT_NAME_SHEET')
 
     def get_df_from_csv(self):
         response = self.s3_resource \
