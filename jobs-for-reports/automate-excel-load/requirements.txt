@@ -1,0 +1,3 @@
+boto3==1.18.49
+openpyxl==3.0.9
+pandas==1.3.3
