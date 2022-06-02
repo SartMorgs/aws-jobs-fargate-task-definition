@@ -1,0 +1,40 @@
+teste_loss:
+  execution_date: 2022-02-08
+  logs:
+    '2022-02-03':
+    - 2022-02-08 10:41:20.051462 - reference data = 2022-02-03 | days gone = -5 |
+      start_count = -4 | days_to_reprocessing = -4
+    - 2022-02-08 10:41:20 - Deleted data from table dimensao.teste_loss
+    - 2022-02-08 10:41:20 - Execution ID = 05228809-3515-42ed-84d7-2c50fa3d983c
+    - 2022-02-08 10:41:31 - Copied s3://bi-dl-artifacts/query-results/ to postgres
+      table dimensao.teste_loss
+    '2022-02-04':
+    - 2022-02-08 10:41:08.627044 - reference data = 2022-02-04 | days gone = -4 |
+      start_count = -3 | days_to_reprocessing = -4
+    - 2022-02-08 10:41:09 - Deleted data from table dimensao.teste_loss
+    - 2022-02-08 10:41:09 - Execution ID = 5c5217aa-43c6-4304-89f0-d6e286a0e7cd
+    - 2022-02-08 10:41:20 - Copied s3://bi-dl-artifacts/query-results/ to postgres
+      table dimensao.teste_loss
+    '2022-02-05':
+    - 2022-02-08 10:40:55.487042 - reference data = 2022-02-05 | days gone = -3 |
+      start_count = -2 | days_to_reprocessing = -4
+    - 2022-02-08 10:40:56 - Deleted data from table dimensao.teste_loss
+    - 2022-02-08 10:40:56 - Execution ID = a9d8fd80-89a5-4962-b722-237dc850f451
+    - 2022-02-08 10:41:08 - Copied s3://bi-dl-artifacts/query-results/ to postgres
+      table dimensao.teste_loss
+    '2022-02-06':
+    - 2022-02-08 10:40:44.426019 - reference data = 2022-02-06 | days gone = -2 |
+      start_count = -1 | days_to_reprocessing = -4
+    - 2022-02-08 10:40:44 - Deleted data from table dimensao.teste_loss
+    - 2022-02-08 10:40:45 - Execution ID = 8c7282b3-fba4-43d5-b3e9-4a63c5800c20
+    - 2022-02-08 10:40:55 - Copied s3://bi-dl-artifacts/query-results/ to postgres
+      table dimensao.teste_loss
+    '2022-02-07':
+    - 2022-02-08 10:40:32.090437 - reference data = 2022-02-07 | days gone = -1 |
+      start_count = 0 | days_to_reprocessing = -4
+    - 2022-02-08 10:40:32 - Deleted data from table dimensao.teste_loss
+    - 2022-02-08 10:40:33 - Execution ID = c1cb6b9a-2778-4022-8f29-3627fbeebab8
+    - 2022-02-08 10:40:44 - Copied s3://bi-dl-artifacts/query-results/ to postgres
+      table dimensao.teste_loss
+  reference_date: '2022-02-03'
+  table_name: teste_loss

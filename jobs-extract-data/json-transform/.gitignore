@@ -1,0 +1,12 @@
+Include
+Lib
+Scripts
+*.cfg
+
+etc
+share
+*.ipynb
+*.ipynb_checkpoints
+
+*.sql
+*.json

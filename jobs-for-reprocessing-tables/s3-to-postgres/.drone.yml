@@ -1,0 +1,89 @@
+---
+
+kind: pipeline
+name: production
+type: kubernetes
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: CLARO - publish to ECR
+    pull: if-not-exists
+    image: plugins/ecr 
+    settings:
+      access_key:
+        from_secret: claro_access_key_id
+      secret_key:
+        from_secret: claro_secret_access_key
+      create_repository: false
+      repo: table-reprocessing-s3-to-postgres
+      region: us-east-1
+      registry: 674737301277.dkr.ecr.us-east-1.amazonaws.com
+      tags:
+        - latest
+      volumes:
+        - name: docker
+          path: /var/lib/docker
+        - name: sock
+          path: /var/run/docker.sock
+
+  - name: CORE - publish to ECR 
+    pull: if-not-exists
+    image: plugins/ecr
+    settings:
+      access_key:
+        from_secret: sdpcore_access_key_id
+      secret_key:
+        from_secret: sdpcore_secret_access_key
+      create_repository: false
+      repo: table-reprocessing-s3-to-postgres
+      region: us-east-1
+      registry: 443786768377.dkr.ecr.us-east-1.amazonaws.com
+      tags:
+        - latest
+      volumes:
+          - name: docker
+            path: /var/lib/docker
+          - name: sock
+            path: /var/run/docker.sock
+
+  - name: OI - publish to ECR 
+    pull: if-not-exists
+    image: plugins/ecr
+    settings:
+      access_key:
+        from_secret: oi_access_key_id
+      secret_key:
+        from_secret: oi_secret_access_key
+      create_repository: false
+      repo: table-reprocessing-s3-to-postgres
+      region: us-east-1
+      registry: 182085250237.dkr.ecr.us-east-1.amazonaws.com
+      tags:
+        - latest
+      volumes:
+          - name: docker
+            path: /var/lib/docker
+          - name: sock
+            path: /var/run/docker.sock
+
+trigger:
+  branch:
+    - master
+
+volumes:
+  - name: m2
+    host:
+      path: /var/cache/m2
+  - name: cache
+    host:
+      path: /var/cache
+  - name: docker
+    host:
+      path: /var/cache/docker
+  - name: sock
+    host:
+      path: /var/run/docker.sock
+    

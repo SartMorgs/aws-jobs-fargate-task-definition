@@ -1,0 +1,17 @@
+schema:
+  headers:
+    - campaign
+    - benefit
+    - campaignResult
+  explode:
+    - benefit
+  inside_fields:
+    campaign:
+      - type
+      - channel
+      - product
+    campaignResult:
+      - accomplishedStatus
+      - remainingStatus
+      - errors
+      - average
